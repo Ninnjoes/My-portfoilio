@@ -402,6 +402,7 @@
                 </div>
 
                 <div class="tech-stack">
+                    <span class="tag">Node.js</span>
                     <span class="tag">Python</span>
                     <span class="tag">Machine Learning</span>
                     <span class="tag">Swift</span>
@@ -416,23 +417,42 @@
         <!-- Featured Project -->
         <section id="featured">
             <div class="section-header">
-                <h2 class="section-title">โครงการหลัก (Featured Project)</h2>
-                <p class="section-subtitle">ผลงานออกแบบและพัฒนาซอฟต์แวร์ที่โดดเด่น</p>
+                <h2 class="section-title">โครงการหลัก (Featured Projects)</h2>
+                <p class="section-subtitle">ผลงานออกแบบ พัฒนาซอฟต์แวร์ และระบบอัตโนมัติ</p>
             </div>
             
-            <div class="card" onclick="openModal('m1')">
-                <div>
-                    <span class="card-tag">NSC 2025 • National Honorable Mention</span>
-                    <h3>Crash Protect: ระบบจำลองการตัดสินใจในเหตุการณ์ไม่คาดคิดบนท้องถนน</h3>
-                    <p>ระบบจำลองเหตุการณ์ฉุกเฉินและประเมินพฤติกรรมการตัดสินใจของผู้ขับขี่แบบเรียลไทม์ ใช้ Computer Vision วิเคราะห์ความเสี่ยง พร้อมเชื่อมต่ออุปกรณ์จำลองการขับขี่เพื่อวัดอัตราการตอบสนองตามกฎจราจร</p>
+            <div class="grid">
+                <!-- Project 1: Crash Protect -->
+                <div class="card" onclick="openModal('m1')">
+                    <div>
+                        <span class="card-tag">NSC 2025 • National Honorable Mention</span>
+                        <h3>Crash Protect: ระบบจำลองการตัดสินใจในเหตุการณ์ไม่คาดคิดบนท้องถนน</h3>
+                        <p>ระบบจำลองเหตุการณ์ฉุกเฉินและประเมินพฤติกรรมการตัดสินใจของผู้ขับขี่แบบเรียลไทม์ ใช้ Computer Vision วิเคราะห์ความเสี่ยง พร้อมเชื่อมต่ออุปกรณ์จำลองการขับขี่เพื่อวัดอัตราการตอบสนองตามกฎจราจร</p>
+                    </div>
+                    <div class="tech-stack" style="margin-top: 1rem;">
+                        <span class="tag">Project Leader</span>
+                        <span class="tag">Software Architecture</span>
+                        <span class="tag">Computer Vision / AI</span>
+                        <span class="tag">Hardware Integration</span>
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">Database Design</span>
+                    </div>
                 </div>
-                <div class="tech-stack" style="margin-top: 1rem;">
-                    <span class="tag">Project Leader</span>
-                    <span class="tag">Software Architecture</span>
-                    <span class="tag">Computer Vision / AI</span>
-                    <span class="tag">Hardware Integration</span>
-                    <span class="tag">UI/UX</span>
-                    <span class="tag">Database Design</span>
+
+                <!-- Project 2: Vector Number Layout Engine (vectorProcessor.js) -->
+                <div class="card" onclick="openModal('m-vector')">
+                    <div>
+                        <span class="card-tag">Industrial Automation • Node.js Module</span>
+                        <h3>Automated Vector Number Layout Engine</h3>
+                        <p>ระบบประมวลผลเวกเตอร์ตัวเลขพิมพ์เสื้อยืดอัตโนมัติ คำนวณขอบเขต Margin จริงและจัดเรียงไฟล์ SVG สกรีนเสื้อให้อัตโนมัติ ลดเวลาจัดไฟล์ Pre-press ลงกว่า 80%</p>
+                    </div>
+                    <div class="tech-stack" style="margin-top: 1rem;">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">JSDOM</span>
+                        <span class="tag">SVG XML Manipulation</span>
+                        <span class="tag">Pre-Press Automation</span>
+                        <span class="tag">Algorithm Design</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -603,6 +623,7 @@
         // Modal Data
         const details = {
             'm1': '<strong>บทบาทหน้าที่:</strong> Project Leader บริหารจัดการทีม วางแผนกรอบเวลา ประสานงาน ออกแบบ Architecture ของระบบ กำหนด UX/UI และโครงสร้างฐานข้อมูล<br><br><strong>จุดเด่นเทคโนโลยี:</strong> ใช้ Computer Vision และ AI ช่วยประมวลผลความเสี่ยง เชื่อมต่อสัญญาณจากฮาร์ดแวร์จำลองการขับเพื่อวิเคราะห์เวลาการตอบสนอง (Reaction Time) ของผู้ขับขี่ และประเมินพฤติกรรมตามกฎหมายจราจร<br><br><strong>Key Learnings:</strong> Leadership, Software Architecture, Computer Vision / AI Integration, Project Management',
+            'm-vector': '<strong>ที่มาและความสำคัญ (Problem Statement):</strong><br>การเตรียมไฟล์ตัวเลขสำหรับสกรีนเสื้อยืด (Screen Printing Pre-press) มักเจอปัญหา Margin ผีที่ติดมากับตัวถัง SVG ของแต่ละฟอนต์ (โดยเฉพาะเลข 1 ที่มีช่องว่างข้างตัวเลขเยอะกว่าปกติ) ทำให้ช่างต้องเสียเวลาปรับแต่งระยะห่างรายตัวผ่านโปรแกรมกราฟิกทีละไฟล์<br><br><strong>โซลูชันเชิงเทคนิค (Technical Implementation):</strong><br>• <strong>DOM Manipulation & SVG Parsing:</strong> ใช้ Node.js ร่วมกับ JSDOM เพื่อแกะโครงสร้าง XML/SVG จาก Master Template ดึงเฉพาะกิ่ง <code>&lt;defs&gt;</code>, <code>&lt;style&gt;</code> และ Node ตัวเลขที่ต้องการ<br>• <strong>Optical Metrics Calculation Engine:</strong> ออกแบบอัลกอริทึมคำนวณ Metric ขนาดจริง โดยตัดพื้นที่ว่างใส (Transparent Padding/Margin) รอบตัวเลขออกเพื่อให้อ้างอิงระยะชิดขอบได้อย่างแม่นยำ<br>• <strong>Special Case Handling:</strong> เขียน Logic คำนวณสเกลพิเศษสำหรับเลข \'1\' และตัวเลข 0, 2-9 แยกกัน ช่วยแก้ปัญหาการเว้นวรรคไม่สมดุลแบบอัตโนมัติ<br>• <strong>Batch Grouping System:</strong> รองรับการป้อน Input แบบหลายชุดพร้อมกันด้วยเครื่องหมายจุลภาค (<code>,</code>) เพื่อร้อยเรียง SVG เป็นชุดเดียวกันใน Artboard เดียว<br><br><strong>ผลลัพธ์ (Impact & Efficiency):</strong><br>• ตัดกระบวนการทำงานแบบ Manual ของช่างกราฟิก พัฒนาเป็นระบบ Automated Pre-press pipeline<br>• <strong>ลดเวลาการจัดเรียงไฟล์ลงกว่า 80%</strong> ป้องกันความผิดพลาดของระยะเคิร์นนิ่ง (Kerning Errors) ในกระบวนการผลิตจริง',
             'm2': 'พัฒนาและออกแบบแนวคิดนวัตกรรมแก้ปัญหาอุบัติเหตุด้วยเทคโนโลยี VR Interactive Simulation เพื่อสร้างประสบการณ์การเรียนรู้เชิงป้องกัน<br><br><strong>Key Learnings:</strong> Design Thinking, Problem Analysis',
             'm3': 'พัฒนาหุ่นยนต์เก็บขยะระบบไฮดรอลิก เขียนโปรแกรมควบคุม Servo Motor และปรับแต่งการจ่ายไฟเพื่อความเสถียรของระบบ Hardware ในสภาวะใช้งานจริง',
             'm4': 'พัฒนา UI/UX และเขียนโปรแกรม Frontend สำหรับ Interactive Web Application สองภาษา แนะนำข้อมูลการศึกษาและวัฒนธรรมเมือง Christchurch ประเทศนิวซีแลนด์ มีระบบสลับภาษา (i18n) และรองรับผู้ใช้งานต่างชาติ',
@@ -631,7 +652,7 @@
         const colorThemes = {
             // 🟢 Green: Robotics, Hardware & IoT
             robotics: { bg: 'rgba(34, 197, 94, 0.15)', text: '#4ade80', border: 'rgba(34, 197, 94, 0.3)' },
-            // 🔴 Red: Coding & Languages
+            // 🔴 Red: Coding & Languages / Backend Automation
             coding: { bg: 'rgba(244, 63, 94, 0.15)', text: '#fb7185', border: 'rgba(244, 63, 94, 0.3)' },
             // 🔵 Blue: AI, Machine Learning & Data Science
             ai: { bg: 'rgba(56, 189, 248, 0.15)', text: '#38bdf8', border: 'rgba(56, 189, 248, 0.3)' },
@@ -647,7 +668,7 @@
             if (lower.includes('robot') || lower.includes('ros') || lower.includes('arduino') || lower.includes('hardware') || lower.includes('servo') || lower.includes('hydraulic') || lower.includes('micro:bit') || lower.includes('iot') || lower.includes('mcu') || lower.includes('esp32')) {
                 return 'robotics';
             }
-            if (lower.includes('python') || lower.includes('swift') || lower.includes('c++') || lower.includes('html') || lower.includes('css') || lower.includes('frontend') || lower.includes('code') || lower.includes('dev')) {
+            if (lower.includes('node.js') || lower.includes('jsdom') || lower.includes('xml') || lower.includes('svg') || lower.includes('automation') || lower.includes('pre-press') || lower.includes('python') || lower.includes('swift') || lower.includes('c++') || lower.includes('html') || lower.includes('css') || lower.includes('frontend') || lower.includes('code') || lower.includes('dev') || lower.includes('algorithm')) {
                 return 'coding';
             }
             if (lower.includes('ai') || lower.includes('machine learning') || lower.includes('model') || lower.includes('vision') || lower.includes('data') || lower.includes('predict') || lower.includes('forest') || lower.includes('csrnet') || lower.includes('math')) {
