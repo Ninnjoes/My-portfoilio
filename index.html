@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanakrit Nuansuwan | Portfolio</title>
+    <!-- Google Fonts: Prompt for Minimal Thai & Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --card-border: #30363d;
+            --text-primary: #f0f6fc;
+            --text-secondary: #8b949e;
+            --accent-color: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --pink-accent: #f472b6;
+            --pink-glow: rgba(244, 114, 182, 0.15);
+            --tag-bg: #21262d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Prompt', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .nav-container {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 7rem 1.5rem 4rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Hero / Profile */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .hero-profile {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--card-border);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+        }
+
+        .hero-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* University Status Badge (Pink Theme) */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--pink-glow);
+            color: var(--pink-accent);
+            border: 1px solid rgba(244, 114, 182, 0.3);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 400;
+            width: fit-content;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--pink-accent);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 720px;
+        }
+
+        .contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Minimal Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: var(--tag-bg);
+            color: var(--text-secondary);
+            border: 1px solid var(--card-border);
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 400;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .tag:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Cards Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            border-color: #484f58;
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            margin-bottom: 0.75rem;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            display: block;
+            font-weight: 500;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 560px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero-profile {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.25rem;
+            }
+            .profile-img {
+                width: 110px;
+                height: 110px;
+            }
+            .hero h1 { font-size: 1.75rem; }
+            .nav-links { display: none; }
+            .container { padding-top: 5.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#about">เกี่ยวกับฉัน</a></li>
+                <li><a href="#featured">โครงการหลัก</a></li>
+                <li><a href="#experience">ประสบการณ์และการแข่งขัน</a></li>
+                <li><a href="#skills">ทักษะวิชาชีพ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <div class="hero">
+                <div class="hero-profile">
+                    <img src="images/IMG_2318.JPG" alt="ธนกฤต นวลสุวรรณ์" class="profile-img">
+                    <div class="hero-details">
+                        <div class="status-badge">
+                            <span class="status-dot"></span>
+                            CEDT • Chulalongkorn University
+                        </div>
+                        <h1>ธนกฤต นวลสุวรรณ์ (แชมป์)</h1>
+                    </div>
+                </div>
+
+                <p>นิสิตวิศวกรรมคอมพิวเตอร์และเทคโนโลยีย์ดิจิทัล (CEDT) จุฬาลงกรณ์มหาวิทยาลัย มุ่งมั่นศึกษาและพัฒนาซอฟต์แวร์ ระบบปัญญาประดิษฐ์ (AI) และวิศวกรรม IoT มีประสบการณ์การนำทีมพัฒนาโปรเจกต์ นวัตกรรม และ Machine Learning</p>
+
+                <div class="contacts">
+                    <a href="tel:0633292959" class="contact-link"><i class="fa-solid fa-phone"></i> 063-329-2959</a>
+                    <a href="mailto:ninnjoesss@gmail.com" class="contact-link"><i class="fa-solid fa-envelope"></i> ninnjoesss@gmail.com</a>
+                    <span class="contact-link"><i class="fa-solid fa-location-dot"></i> ไทย/กรุงเทพ</span>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tag">Python</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Swift</span>
+                    <span class="tag">Arduino & IoT</span>
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">UI/UX (Figma)</span>
+                    <span class="tag">Video Production</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Project -->
+        <section id="featured">
+            <div class="section-header">
+                <h2 class="section-title">โครงการหลัก (Featured Project)</h2>
+                <p class="section-subtitle">ผลงานออกแบบและพัฒนาซอฟต์แวร์ที่โดดเด่น</p>
+            </div>
+            
+            <div class="card" onclick="openModal('m1')">
+                <div>
+                    <span class="card-tag">NSC 2025 • National Honorable Mention</span>
+                    <h3>Crash Protect: ระบบจำลองการตัดสินใจในเหตุการณ์ไม่คาดคิดบนท้องถนน</h3>
+                    <p>ระบบจำลองเหตุการณ์ฉุกเฉินและประเมินพฤติกรรมการตัดสินใจของผู้ขับขี่แบบเรียลไทม์ ใช้ Computer Vision วิเคราะห์ความเสี่ยง พร้อมเชื่อมต่ออุปกรณ์จำลองการขับขี่เพื่อวัดอัตราการตอบสนองตามกฎจราจร</p>
+                </div>
+                <div class="tech-stack" style="margin-top: 1rem;">
+                    <span class="tag">Project Leader</span>
+                    <span class="tag">Software Architecture</span>
+                    <span class="tag">Computer Vision / AI</span>
+                    <span class="tag">Hardware Integration</span>
+                    <span class="tag">UI/UX</span>
+                    <span class="tag">Database Design</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competitions -->
+        <section id="experience">
+            <div class="section-header">
+                <h2 class="section-title">ประสบการณ์และการแข่งขัน</h2>
+                <p class="section-subtitle">ผลงาน Hackathon, หุ่นยนต์ และการทดสอบมาตรฐานวิชาชีพ</p>
+            </div>
+
+            <div class="grid">
+                <div class="card" onclick="openModal('m8')">
+                    <div>
+                        <span class="card-tag">Robotics & Embedded Systems</span>
+                        <h3>micro-ROS Autonomous Mobile Robot</h3>
+                        <p>พัฒนาหุ่นยนต์เคลื่อนที่อัตโนมัติด้วย micro-ROS บน Microcontroller เชื่อมต่อสื่อสารกับ ROS 2 Node เพื่อประมวลผล Sensor Data และสั่งการแบบ Real-Time</p>
+                    </div>
+                    <div class="tech-stack" style="margin-top: 0.75rem;">
+                        <span class="tag">micro-ROS</span>
+                        <span class="tag">ROS 2</span>
+                        <span class="tag">ESP32 / MCU</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">Robotics</span>
+                    </div>
+                </div>
+
+                <div class="card" onclick="openModal('m6')">
+                    <div>
+                        <span class="card-tag">Super AI Engineer S4 (Rank 14 / 112)</span>
+                        <h3>Hand-Foot-Mouth Disease Prediction</h3>
+                        <p>พัฒนาโมเดล Predictive Machine Learning (Random Forest) เพื่อพยากรณ์การแพร่ระบาดตามปัจจัยฤดูกาลและพื้นที่</p>
+                    </div>
+                    <div class="tech-stack" style="margin-top: 0.75rem;">
+                        <span class="tag">Python</span>
+                        <span class="tag">Random Forest</span>
+                        <span class="tag">Data Analysis</span>
+                        <span class="tag">Predictive Model</span>
+                    </div>
+                </div>
+
+                <div class="card" onclick="openModal('m2')">
+                    <div>
+                        <span class="card-tag">Thailand Metaverse Hackathon • 2nd Runner-Up</span>
+                        <h3>VR Road Safety Innovation</h3>
+                        <p>พัฒนานวัตกรรมลดอุบัติเหตุบนท้องถนนผ่านเทคโนโลยี Virtual Reality Interactive Simulation</p>
+                    </div>
+                    <div class="tech-stack" style="margin-top: 0.75rem;">
+                        <span class="tag">Virtual Reality</span>
+                        <span class="tag">Interactive Simulation</span>
+                        <span class="tag">Design Thinking</span>
+                    </div>
+                </div>
+
+                <div class="card" onclick="openModal('m5')">
+                    <div>
+                        <span class="card-tag">MRTA Innovation Camp 2025 • Top 10</span>
+                        <h3>Smart Transit & Passenger Analytics</h3>
+                        <p>ออกแบบระบบ Contactless Payment และประยุกต์ใช้ CSRNet AI Model ตรวจสอบความหนาแน่นผู้โดยสาร</p>
+                    </div>
+                    <div class="tech-stack" style="margin-top: 0.75rem;">
+                        <span class="tag">CSRNet Model</span>
+                        <span class="tag">Contactless Payment</span>
+                        <span class="tag">AI Analytics</span>
+                    </div>
+                </div>
+
+                <div class="card" onclick="openModal('m3')">
+                    <div>
+                        <span class="card-tag">Electric Kid Truck 2024 • Champion</span>
+                        <h3>Automated Waste-Collecting Robot</h3>
+                        <p>ออกแบบหุ่นยนต์เก็บขยะระบบไฮดรอลิก เขียนโปรแกรมควบคุม Servo Motor และจัดการพลังงาน</p>
+                    </div>
+                    <div class="tech-stack" style="margin-top: 0.75rem;">
+                        <span class="tag">Robotics</span>
+                        <span class="tag">Servo Control</span>
+                        <span class="tag">Hydraulic System</span>
+                        <span class="tag">Embedded Hardware</span>
+                    </div>
+                </div>
+
+                <div class="card" onclick="openModal('m4')">
+                    <div>
+                        <span class="card-tag">Study With New Zealand • Winner</span>
+                        <h3>Interactive Web Application</h3>
+                        <p>ออกแบบ UI/UX และพัฒนา Frontend เว็บแอปพลิเคชันแนะนำข้อมูลการศึกษาและวัฒนธรรม</p>
+                    </div>
+                    <div class="tech-stack" style="margin-top: 0.75rem;">
+                        <span class="tag">i18n</span>
+                        <span class="tag">Frontend Dev</span>
+                        <span class="tag">UI/UX Design</span>
+                    </div>
+                </div>
+
+                <div class="card" onclick="openModal('m7')">
+                    <div>
+                        <span class="card-tag">Super AI Engineer Season 5</span>
+                        <h3>AI & Math Standard Assessment</h3>
+                        <p>ผ่านการสอบวัดระดับมาตรฐานความรู้ด้าน Machine Learning, Model Training และ Mathematics for Engineering (77/100)</p>
+                    </div>
+                    <div class="tech-stack" style="margin-top: 0.75rem;">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Model Training</span>
+                        <span class="tag">Math for AI</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Soft Skills & Experience -->
+        <section id="skills">
+            <div class="section-header">
+                <h2 class="section-title">ทักษะและการทำงานร่วมกับผู้อื่น</h2>
+                <p class="section-subtitle">บทบาทการเป็นผู้นำ และงานบริการวิชาการ</p>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="cursor: default;">
+                    <div>
+                        <h3>Teaching Assistant (TA)</h3>
+                        <p>ผู้ช่วยสอนอบรมเชิงปฏิบัติการ ให้คำแนะนำการเขียนโปรแกรมควบคุม Arduino, Micro:bit, Unity และการใช้งาน AI</p>
+                    </div>
+                    <div class="tech-stack" style="margin-top: 0.75rem;">
+                        <span class="tag">Arduino</span>
+                        <span class="tag">Micro:bit</span>
+                        <span class="tag">Unity</span>
+                        <span class="tag">Mentoring</span>
+                    </div>
+                </div>
+
+                <div class="card" style="cursor: default;">
+                    <div>
+                        <h3>Team Management & Event Leader</h3>
+                        <p>วางแผนและบริหารจัดการทีม นำกิจกรรม Ice Breaking และดูแลการทำงานร่วมกันในองค์กรและค่ายเทคโนโลยี</p>
+                    </div>
+                    <div class="tech-stack" style="margin-top: 0.75rem;">
+                        <span class="tag">Leadership</span>
+                        <span class="tag">Event Planning</span>
+                        <span class="tag">Team Collaboration</span>
+                    </div>
+                </div>
+
+                <div class="card" style="cursor: default;">
+                    <div>
+                        <h3>Digital Production & Video Editor</h3>
+                        <p>ออกแบบและตัดต่อสื่อมัลติมีเดีย งานวิดีโอคอนเทนต์ด้วย Adobe Premiere Pro และ Final Cut Pro</p>
+                    </div>
+                    <div class="tech-stack" style="margin-top: 0.75rem;">
+                        <span class="tag">Premiere Pro</span>
+                        <span class="tag">Final Cut Pro</span>
+                        <span class="tag">Video Editing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Minimal Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title" style="margin-bottom: 0.75rem; color: var(--text-primary); font-size: 1.25rem;">รายละเอียด</h3>
+            <p id="modal-desc" style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7;"></p>
+        </div>
+    </div>
+
+    <script>
+        // Modal Data
+        const details = {
+            'm1': '<strong>บทบาทหน้าที่:</strong> Project Leader บริหารจัดการทีม วางแผนกรอบเวลา ประสานงาน ออกแบบ Architecture ของระบบ กำหนด UX/UI และโครงสร้างฐานข้อมูล<br><br><strong>จุดเด่นเทคโนโลยี:</strong> ใช้ Computer Vision และ AI ช่วยประมวลผลความเสี่ยง เชื่อมต่อสัญญาณจากฮาร์ดแวร์จำลองการขับเพื่อวิเคราะห์เวลาการตอบสนอง (Reaction Time) ของผู้ขับขี่ และประเมินพฤติกรรมตามกฎหมายจราจร<br><br><strong>Key Learnings:</strong> Leadership, Software Architecture, Computer Vision / AI Integration, Project Management',
+            'm2': 'พัฒนาและออกแบบแนวคิดนวัตกรรมแก้ปัญหาอุบัติเหตุด้วยเทคโนโลยี VR Interactive Simulation เพื่อสร้างประสบการณ์การเรียนรู้เชิงป้องกัน<br><br><strong>Key Learnings:</strong> Design Thinking, Problem Analysis',
+            'm3': 'พัฒนาหุ่นยนต์เก็บขยะระบบไฮดรอลิก เขียนโปรแกรมควบคุม Servo Motor และปรับแต่งการจ่ายไฟเพื่อความเสถียรของระบบ Hardware ในสภาวะใช้งานจริง',
+            'm4': 'พัฒนา UI/UX และเขียนโปรแกรม Frontend สำหรับ Interactive Web Application สองภาษา แนะนำข้อมูลการศึกษาและวัฒนธรรมเมือง Christchurch ประเทศนิวซีแลนด์ มีระบบสลับภาษา (i18n) และรองรับผู้ใช้งานต่างชาติ',
+            'm5': 'ร่วมออกแบบระบบ Smart Station สำหรับรถไฟฟ้า MRT รวมถึงการประยุกต์ใช้ CSRNet AI Model เพื่อตรวจจับและประเมินความหนาแน่นของผู้โดยสารในโบกี้',
+            'm6': 'สร้างและปรับแต่ง Machine Learning Model (Random Forest) รวมถึงทำ Feature Engineering จากปัจจัยเชิงเวลาและภูมิศาสตร์ เพื่อทำพยากรณ์อัตราการแพร่ระบาด',
+            'm7': 'ผ่านการทดสอบมาตรฐานความรู้เชิงลึกด้าน Machine Learning Algorithms, Mathematical Foundation for AI และ Computer Vision',
+            'm8': '<strong>รายละเอียดโครงการ:</strong> ออกแบบและพัฒนาระบบควบคุมหุ่นยนต์เคลื่อนที่อัตโนมัติโดยประยุกต์ใช้ micro-ROS บน Microcontroller (ESP32) ทำหน้าที่เป็น Publisher/Subscriber รับ-ส่งค่า Sensor Data และคำสั่งควบคุมมอเตอร์ร่วมกับระบบ ROS 2 Agent บน Host Machine แบบ Real-Time<br><br><strong>Key Learnings:</strong> micro-ROS Middleware, ROS 2 Architecture, Embedded Control, Hardware-Software Communication'
+        };
+
+        function openModal(key) {
+            document.getElementById('modal-desc').innerHTML = details[key] || "ไม่มีข้อมูลเพิ่มเติม";
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        window.onclick = function(e) {
+            if (e.target == document.getElementById('modal')) {
+                closeModal();
+            }
+        }
+
+        // Categorized Color Palette based on Tag Context
+        const colorThemes = {
+            // 🟢 Green: Robotics, Hardware & IoT
+            robotics: { bg: 'rgba(34, 197, 94, 0.15)', text: '#4ade80', border: 'rgba(34, 197, 94, 0.3)' },
+            // 🔴 Red: Coding & Languages
+            coding: { bg: 'rgba(244, 63, 94, 0.15)', text: '#fb7185', border: 'rgba(244, 63, 94, 0.3)' },
+            // 🔵 Blue: AI, Machine Learning & Data Science
+            ai: { bg: 'rgba(56, 189, 248, 0.15)', text: '#38bdf8', border: 'rgba(56, 189, 248, 0.3)' },
+            // 🟣 Purple: Design, VR & UI/UX
+            design: { bg: 'rgba(168, 85, 247, 0.15)', text: '#c084fc', border: 'rgba(168, 85, 247, 0.3)' },
+            // 🟡 Yellow: Leadership, Management & Soft Skills
+            management: { bg: 'rgba(250, 204, 21, 0.15)', text: '#facc15', border: 'rgba(250, 204, 21, 0.3)' }
+        };
+
+        // Keyword mapping to assign categories
+        function getCategoryForTag(text) {
+            const lower = text.toLowerCase();
+            if (lower.includes('robot') || lower.includes('ros') || lower.includes('arduino') || lower.includes('hardware') || lower.includes('servo') || lower.includes('hydraulic') || lower.includes('micro:bit') || lower.includes('iot') || lower.includes('mcu') || lower.includes('esp32')) {
+                return 'robotics';
+            }
+            if (lower.includes('python') || lower.includes('swift') || lower.includes('c++') || lower.includes('html') || lower.includes('css') || lower.includes('frontend') || lower.includes('code') || lower.includes('dev')) {
+                return 'coding';
+            }
+            if (lower.includes('ai') || lower.includes('machine learning') || lower.includes('model') || lower.includes('vision') || lower.includes('data') || lower.includes('predict') || lower.includes('forest') || lower.includes('csrnet') || lower.includes('math')) {
+                return 'ai';
+            }
+            if (lower.includes('ui/ux') || lower.includes('vr') || lower.includes('virtual') || lower.includes('design') || lower.includes('i18n') || lower.includes('unity') || lower.includes('editing') || lower.includes('video') || lower.includes('premiere') || lower.includes('final cut')) {
+                return 'design';
+            }
+            return 'management';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const tags = document.querySelectorAll('.tag');
+            tags.forEach(tag => {
+                const category = getCategoryForTag(tag.textContent.trim());
+                const theme = colorThemes[category];
+                tag.style.backgroundColor = theme.bg;
+                tag.style.color = theme.text;
+                tag.style.borderColor = theme.border;
+            });
+        });
+    </script>
+</body>
+</html>
